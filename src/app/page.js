@@ -1,13 +1,14 @@
 'use client';
 
-const triggerFetch = async () => {
-  await fetch('/api/news/fetch');
+const logNews = async () => {
+  const res = await fetch('/api/news');
+  console.log(await res.json());
 };
 
 export default function HomePage() {
   return (
     <>
-      <button onClick={triggerFetch}>Click me</button>
+      <button onClick={logNews}>Click me</button>
     </>
   );
 }
