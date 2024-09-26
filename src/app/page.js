@@ -13,7 +13,6 @@ export default function HomePage() {
     const res = await fetch(`api/news?page=${page}&limit=9`);
     const { data, meta } = await res.json();
     setNews(data);
-    console.log(data);
     setTotalPages(meta.totalPages);
   };
 
@@ -41,10 +40,10 @@ export default function HomePage() {
   return (
     <>
       <div className="w-full">
-        <div className="w-4/6 mx-auto pt-8">
+        <div className="w-9/12 md:w-4/6 mx-auto pt-8">
           <h1 className="text-8xl text-center font-bold mb-6">Space News 🚀</h1>
 
-          <div className="w-full grid md:grid-cols-3 grid-cols-2 gap-x-4 gap-y-7">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-x-4 gap-y-7">
             {news.map((article) => {
               const { _id, title, urlToImage, publishedAt, url } = article;
               return (
