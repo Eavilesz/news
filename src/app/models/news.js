@@ -9,6 +9,7 @@ const schema = new mongoose.Schema({
   title: String,
   description: String,
   url: String,
+  blurDataURL: String,
   urlToImage: String,
   publishedAt: String,
   content: String,
