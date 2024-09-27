@@ -50,7 +50,7 @@ export default function HomePage() {
 
         <div className="w-full grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-x-4 gap-y-7">
           {isLoading
-            ? loadingItems.map((item) => <Loading />)
+            ? loadingItems.map((item) => <Loading key={item} />)
             : news.map((article) => {
                 const {
                   _id,
