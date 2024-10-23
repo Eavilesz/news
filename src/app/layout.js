@@ -1,15 +1,9 @@
-import localFont from 'next/font/local';
+import { Exo_2 } from '@next/font/google';
 import './globals.css';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+const exo = Exo_2({
+  subsets: ['latin'],
+  weight: ['400', '700'],
 });
 
 export const metadata = {
@@ -20,11 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${exo.className} antialiased`}>{children}</body>
     </html>
   );
 }
