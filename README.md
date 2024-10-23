@@ -1,5 +1,3 @@
-Copy code
-
 # Space News App
 
 This is a responsive News application built with **Next.js**, which uses **Mongoose** to interact with an **Atlas MongoDB** database. The app fetches space-related news from the [News API](https://newsapi.org/) twice a day via a **Vercel Cron Job** and stores the data in MongoDB for users to view the latest updates.
