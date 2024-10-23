@@ -26,11 +26,13 @@ export default function NewsCard({ article }) {
           onError={handleImageError}
         />
       </div>
-      <CardContent className="p-4">
-        <h2 className="text-xl font-bold line-clamp-2 mb-2">{title}</h2>
-        <p className="text-sm text-gray-500">
-          {new Date(publishedAt).toLocaleDateString()}
-        </p>
+      <CardContent className="p-4 h-32 flex flex-col justify-between">
+        <h2 className="text-xl font-bold line-clamp-2">{title}</h2>
+        <div className="mt-auto">
+          <p className="text-sm text-gray-500">
+            {new Date(publishedAt).toLocaleDateString()}
+          </p>
+        </div>
       </CardContent>
       <CardFooter>
         <Button asChild className="w-full">
