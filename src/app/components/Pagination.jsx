@@ -11,8 +11,34 @@ export default function Pagination({ totalPages, currentPage }) {
     router.push(`/?page=${page}`);
   };
 
+  const getPageNumbers = () => {
+    const delta = 2;
+    const range = [];
+    for (
+      let i = Math.max(2, currentPage - delta);
+      i <= Math.min(totalPages - 1, currentPage + delta);
+      i++
+    ) {
+      range.push(i);
+    }
+
+    if (currentPage - delta > 2) {
+      range.unshift('...');
+    }
+    if (currentPage + delta < totalPages - 1) {
+      range.push('...');
+    }
+
+    range.unshift(1);
+    if (totalPages !== 1) {
+      range.push(totalPages);
+    }
+
+    return range;
+  };
+
   return (
-    <div className="flex justify-center items-center space-x-2 mt-8 text-black">
+    <div className="flex justify-center items-center space-x-2 mt-8 text-black overflow-x-auto">
       <Button
         variant="outline"
         size="icon"
@@ -21,11 +47,14 @@ export default function Pagination({ totalPages, currentPage }) {
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
-      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+      {getPageNumbers().map((page, index) => (
         <Button
-          key={page}
+          key={index}
           variant={page === currentPage ? 'default' : 'outline'}
-          onClick={() => handlePageChange(page)}
+          onClick={() =>
+            typeof page === 'number' ? handlePageChange(page) : null
+          }
+          disabled={typeof page !== 'number'}
         >
           {page}
         </Button>
