@@ -1,4 +1,4 @@
-import { Exo_2 } from '@next/font/google';
+import { Exo_2 } from "next/font/google";
 import './globals.css';
 
 const exo = Exo_2({
